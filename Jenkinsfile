@@ -16,7 +16,7 @@ pipeline{
                   "http://ec2-34-229-56-41.compute-1.amazonaws.com:8081/artifactory/ansible/ansible-${BUILD_ID}.zip"'
             }
         }
-        stage('Publish to ansible server'){
+        stage('Publish to Ansible Server'){
             steps{
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible server',\
                  transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'unzip -o ansible-${BUILD_ID}.zip; rm -rf ansible-${BUILD_ID}.zip',\
